@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          new changes
+          new changes 2
         </a>
       </header>
     </div>
