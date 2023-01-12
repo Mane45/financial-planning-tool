@@ -1,3 +1,6 @@
+/* div {
+    background: red;
+} */
 * {
     box-sizing: border-box;
 }
@@ -20,6 +23,7 @@ h1, h3, p {
     width: 30%;
     display: flex;
     flex-direction: column;
+    /* padding: 0 20px; */
     padding: 10% 20px 10%;
     justify-content: space-between;
     height: 800px;
@@ -27,15 +31,21 @@ h1, h3, p {
 .loginForm {
     display: flex !important;
     flex-direction: column;
+    /* align-items: center;
+    justify-content: center; */
     width: 100%;
     padding: 10% 10%;
+    /* background: lightcoral;
+    padding: 10px; */
 }
 
 .loginSubmit {
     width: 100%;
-    background-color: #55a9a6;
-    border-color: #51a09e;
-    color: #fff;
+    /* font-size:13px; */
+    /* padding: 8px; */
+    background-color: #55a9a6 !important;
+    border-color: #51a09e !important;
+    color: #fff !important;
     cursor: pointer;
     text-align: center;
     vertical-align: middle;
