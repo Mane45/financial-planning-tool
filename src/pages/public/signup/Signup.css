@@ -11,7 +11,7 @@ h1, h3, p {
     height: 100vh;
 }
 .picture {
-    background-image: url("./loginBg.png");
+    background-image: url("../../../assets/images/loginBg.png");
     width: 70%;
     background-repeat: no-repeat;
     background-size: cover;

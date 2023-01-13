@@ -11,3 +11,26 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.loginContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.logoContainer {
+  text-align: center;
+}
+.logoContainer img {
+  width: 50%;
+}
+a {
+  text-decoration: none;
+  color: #55a9a6;
+}
+.ant-menu-item.ant-menu-item-selected,
+.ant-menu-item.ant-menu-item-selected {
+  background-color: #55a9a6!important;
+}
+.trigger:hover {
+  color: #55a9a6!important;
+}
