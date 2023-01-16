@@ -10,7 +10,7 @@ import { Formik } from 'formik';
 
 import logo from "../../../assets/images/logo.png";
 import './Signup.css';
-
+/* eye icons */
 import { EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons';
 
 
@@ -100,7 +100,7 @@ const Login = () => {
                                 </div>
                             </div>
                             {errors.password && touched.password && errors.password}
-
+{/* 
                             <label>Confirm Password</label>
                             <input
                                     type="password"
@@ -111,7 +111,7 @@ const Login = () => {
                                     className="inputStyle"
                                 />
                             
-                            {errors.confirmPassword && touched.confirmPassword && errors.confirmPassword}
+                            {errors.confirmPassword && touched.confirmPassword && errors.confirmPassword} */}
 
 
                             <button type="submit" disabled={isSubmitting} className="loginSubmit">
