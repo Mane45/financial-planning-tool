@@ -10,12 +10,6 @@ import Signin from './pages/public/signin/Signin';
 
 function App() {
   return (
-<<<<<<< HEAD
-    <div className="App">
-      <Login />
-  gggggggddddhhhh
-    </div>
-=======
     <Router>                            
         <Routes>   
           <Route path="/home" element={<HomeLayout/>}>
@@ -27,8 +21,7 @@ function App() {
           <Route path="/signin" element={<Signin />}/>
         </Routes>                    
     </Router>
->>>>>>> ec15937 (refactored project and added Registration, functional and routing)
-  );
+  )
 }
 
 export default App;

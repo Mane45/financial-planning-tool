@@ -12,13 +12,22 @@ import logo from "../../../assets/images/logo.png";
 import './Signup.css';
 /* eye icons */
 import { EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons';
+/* error massage */
+import { message } from 'antd';
 
 const Login = () => {
     const ref = collection(firestore, "users");
     const navigate = useNavigate();
     const [showHidePass, setShowHidePass] = useState(false);
     const [showHideConfirmPass, setShowHideConfirmPass] = useState(false);
+    //const [messageApi, contextHolder] = message.useMessage();
+    //const [errorMessage, SetErrorMessage] = useState("empty")
 
+    const error = (errorType) => {
+        //console.log(errorType);
+        message.error(`${errorType ? "Please insert a valid email address" : 'none'}`, 1.5)
+        //message.info('Please insert a valid email address');
+    }
 
     return (<div className="loginPage">
         <div className='picture'></div>
@@ -33,6 +42,8 @@ const Login = () => {
                         const errors = {};
                         if (!values.email) {
                             errors.email = 'Required';
+                            //error()
+                            //errors.email = error();
                         } else if (
                             !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
                         ) {
@@ -73,7 +84,7 @@ const Login = () => {
                         isSubmitting,
                     }) => (
                         <form onSubmit={handleSubmit} className="loginForm">
-                        <div className='wrapperNameSurname'>
+                            <div className='wrapperNameSurname'>
                                 <div className='wrapperName'>
                                     <label>Name</label>
                                     <input
@@ -98,6 +109,7 @@ const Login = () => {
                                 </div>
                             </div>
                             <label>E-mail</label>
+                            {/* {errors.email && touched.email && errors.email} */}
                             <input
                                 type="email"
                                 name="email"
@@ -106,7 +118,9 @@ const Login = () => {
                                 value={values.email}
                                 className="inputStyle"
                             />
-                            {errors.email && touched.email && errors.email}
+                            {/* {errors.email && touched.email && errors.email} */}
+                            {/* {errors.email && touched.email && error()} */}
+                            {errors.email && touched.email && error(errors.email)}
                             <div className='wrapperMaleFamel' role="group" aria-labelledby="my-radio-group">
                                 <label className='male'>
                                     <Field type="radio" name="gender" value="Male" />
@@ -120,15 +134,6 @@ const Login = () => {
                             </div>
 
                             <label>Password</label>
-                            {/* <input
-                                type="password"
-                                name="password"
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                value={values.password}
-                                className="inputStyle"
-                            />
-                            {errors.password && touched.password && errors.password} */}
                             <div className='wrapper inputStyle'>
                                 <input
                                     type={showHidePass ? "text" : "password"}
@@ -144,16 +149,11 @@ const Login = () => {
                             </div>
                             {errors.password && touched.password && errors.password}
 
+                            {/* {errors.password && touched.password ? (
+                                <div>{errors.password}</div>
+                            ) : null} */}
+
                             <label>Confirm Password</label>
-                            {/* <input
-                                type="password"
-                                name="confirmPassword"
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                value={values.confirmPassword}
-                                className="inputStyle"
-                            />
-                            {errors.confirmPassword && touched.confirmPassword && errors.confirmPassword} */}
                             <div className='wrapper inputStyle'>
                                 <input
                                     type={showHidePass ? "text" : "password"}
@@ -169,8 +169,10 @@ const Login = () => {
                             </div>
                             {errors.confirmPassword && touched.confirmPassword && errors.confirmPassword}
 
-
-                            <button type="submit" disabled={isSubmitting} className="loginSubmit">
+                            <button type="submit" disabled={isSubmitting} className="loginSubmit" onClick={() => {
+          //message.info('Message Content!');
+          error(errors.email)
+          }}>
                                 Register
                             </button>
                             <hr className='line' />
