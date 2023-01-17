@@ -20,7 +20,7 @@ h1, h3, p {
     width: 30%;
     display: flex;
     flex-direction: column;
-    padding: 10% 20px 10%;
+    padding: 100px 20px 10% !important;
     justify-content: space-between;
     height: 800px;
 }
@@ -71,3 +71,59 @@ h1 {
     width: 100%;
     margin: 1rem 0;
 }
+.welcomeTitle {
+    display: flex;
+    justify-content: center;
+    color: #55a9a6;
+}
+.wrapper,
+.wrapperNameSurname {
+    display: flex;
+    justify-content: space-between;
+}
+.wrapperNameSurname, 
+.wrapperMaleFamel, 
+.wrapperAge {
+    margin: 3px 0 20px 0;
+}
+.passworsInput {
+    border: none;
+    outline: none;
+}
+.showHidebtn { 
+    margin: 0 5px;
+}
+.wrapperName, 
+.wrapperSurname {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% / 2);
+}
+.wrapperName input, 
+.wrapperSurname input {
+    border-radius: 0.25rem;
+    border: 1px solid #ced4da;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    height: calc(1.5em + 0.75rem + 2px);
+    outline: 0;
+    color: #495057;
+    background-color: #ffffff;
+}
+.wrapperName, 
+.male, 
+.wrapperFisrtAge, 
+.wrapperSecondAge {
+    padding-right: 10px;
+}
+
+.wrapperAge {
+    display: flex;
+    flex-direction: column;
+}
+.wrapperAgeRanges {
+    display: flex;
+}
+.titleAge {
+    padding: 10px 0;
+}
+
