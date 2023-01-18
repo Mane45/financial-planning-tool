@@ -126,4 +126,11 @@ h1 {
 .titleAge {
     padding: 10px 0;
 }
-
+/*error feedback maessages*/
+.inputFeedback {
+    color: red;
+    margin-top: .25rem;
+}
+.error {
+    border-color: red !important;
+}

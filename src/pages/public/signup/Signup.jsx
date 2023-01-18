@@ -20,14 +20,6 @@ const Login = () => {
     const navigate = useNavigate();
     const [showHidePass, setShowHidePass] = useState(false);
     const [showHideConfirmPass, setShowHideConfirmPass] = useState(false);
-    //const [messageApi, contextHolder] = message.useMessage();
-    //const [errorMessage, SetErrorMessage] = useState("empty")
-
-    const error = (errorType) => {
-        //console.log(errorType);
-        message.error(`${errorType ? "Please insert a valid email address" : 'none'}`, 1.5)
-        //message.info('Please insert a valid email address');
-    }
 
     return (<div className="loginPage">
         <div className='picture'></div>
@@ -42,8 +34,6 @@ const Login = () => {
                         const errors = {};
                         if (!values.email) {
                             errors.email = 'Required';
-                            //error()
-                            //errors.email = error();
                         } else if (
                             !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
                         ) {
@@ -109,18 +99,20 @@ const Login = () => {
                                 </div>
                             </div>
                             <label>E-mail</label>
-                            {/* {errors.email && touched.email && errors.email} */}
                             <input
                                 type="email"
                                 name="email"
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                                 value={values.email}
-                                className="inputStyle"
+                                className={errors.email && touched.email
+                                    ? "inputStyle error"
+                                    : "inputStyle"
+                                }
                             />
-                            {/* {errors.email && touched.email && errors.email} */}
-                            {/* {errors.email && touched.email && error()} */}
-                            {errors.email && touched.email && error(errors.email)}
+                            {errors.email && touched.email && (
+                                <div className='inputFeedback'>{errors.email}</div>
+                            )}
                             <div className='wrapperMaleFamel' role="group" aria-labelledby="my-radio-group">
                                 <label className='male'>
                                     <Field type="radio" name="gender" value="Male" />
@@ -134,7 +126,11 @@ const Login = () => {
                             </div>
 
                             <label>Password</label>
-                            <div className='wrapper inputStyle'>
+                            <div
+                                className={errors.password && touched.password
+                                    ? "wrapper inputStyle error"
+                                    : "wrapper inputStyle"
+                                }>
                                 <input
                                     type={showHidePass ? "text" : "password"}
                                     name="password"
@@ -147,32 +143,41 @@ const Login = () => {
                                     {showHidePass ? <EyeOutlined /> : <EyeInvisibleOutlined />}
                                 </div>
                             </div>
-                            {errors.password && touched.password && errors.password}
-agsjrgljglj
-                            {/* {errors.password && touched.password ? (
-                                <div>{errors.password}</div>
-                            ) : null} */}
+                            {errors.password && touched.password && (
+                                <div className='inputFeedback'>{errors.password}</div>
+                            )}
 
                             <label>Confirm Password</label>
-                            <div className='wrapper inputStyle'>
+                            <div
+                                //className='wrapper inputStyle'
+                                className={values.password === values.confirmPassword
+                                    ? "wrapper inputStyle"
+                                    : "wrapper inputStyle error"
+                                }
+                            >
                                 <input
-                                    type={showHidePass ? "text" : "password"}
+                                    type={showHideConfirmPass ? "text" : "password"}
                                     name="confirmPassword"
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     value={values.confirmPassword}
                                     className="passworsInput"
                                 />
-                                <div className="showHidebtn" onClick={(e) => { setShowHidePass(!showHidePass) }}>
-                                    {showHidePass ? <EyeOutlined /> : <EyeInvisibleOutlined />}
+                                <div className="showHidebtn" onClick={(e) => { setShowHideConfirmPass(!showHideConfirmPass) }}>
+                                    {showHideConfirmPass ? <EyeOutlined /> : <EyeInvisibleOutlined />}
                                 </div>
                             </div>
-                            {errors.confirmPassword && touched.confirmPassword && errors.confirmPassword}
+                             {errors.confirmPassword && touched.confirmPassword && (
+                                <div className='inputFeedback'>{errors.confirmPassword}</div>
+                            )}
+
+                           
+                            {/* {errors.confirmPassword && touched.confirmPassword && errors.confirmPassword} */}
 
                             <button type="submit" disabled={isSubmitting} className="loginSubmit" onClick={() => {
-          //message.info('Message Content!');
-          error(errors.email)
-          }}>
+                                //message.info('Message Content!');
+                                //error(errors.email)
+                            }}>
                                 Register
                             </button>
                             <hr className='line' />
